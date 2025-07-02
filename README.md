@@ -387,6 +387,24 @@ docker-compose --profile test up
 docker-compose --profile dev up
 ```
 
+### Using MCP Inspector
+
+The MCP Inspector provides a web interface to interact with and test the server:
+
+```bash
+# Install MCP Inspector (if not already installed)
+npm install -g @modelcontextprotocol/inspector
+
+# Run inspector with the Python server
+make inspector
+```
+
+The inspector will start on `http://localhost:5173` where you can:
+- View available tools and prompts
+- Test tool execution with different parameters
+- Inspect request/response payloads
+- Debug server behavior
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.

@@ -1,4 +1,4 @@
-.PHONY: help install install-dev test format lint typecheck quality build clean publish publish-test docker docker-test bump-patch bump-minor bump-major
+.PHONY: help install install-dev test format lint typecheck quality build clean publish publish-test docker docker-test bump-patch bump-minor bump-major inspector
 
 help:
 	@echo "Available commands:"
@@ -15,6 +15,7 @@ help:
 	@echo "  publish-test  Publish to Test PyPI"
 	@echo "  docker        Build Docker image"
 	@echo "  docker-test   Run tests in Docker"
+	@echo "  inspector     Run MCP Inspector"
 	@echo "  bump-patch    Bump patch version"
 	@echo "  bump-minor    Bump minor version"
 	@echo "  bump-major    Bump major version"
@@ -83,3 +84,10 @@ docker-minimal:
 
 docker-smithery:
 	docker build -f Dockerfile.smithery -t pluggedin-random-number-generator-mcp-python:smithery .
+
+# MCP Inspector
+inspector:
+	@echo "Starting MCP Inspector for Python server..."
+	@echo "Server will be available at http://localhost:5173"
+	@echo "Note: Make sure you have @modelcontextprotocol/inspector installed (npm install -g @modelcontextprotocol/inspector)"
+	npx @modelcontextprotocol/inspector python3 scripts/run-inspector.py

@@ -16,15 +16,15 @@ classifiers = [
     "Topic :: Software Development :: Libraries",
 ]
 keywords = ["mcp", "model-context-protocol", "random", "cryptography", "rng", "prng", "csprng", "ai", "llm", "python"]
+dependencies = [
+    "fastmcp>=0.1.0",
+]
 
 [project.urls]
 "Homepage" = "https://github.com/VeriTeknik/pluggedin-random-number-generator-mcp-python"
 "Bug Tracker" = "https://github.com/VeriTeknik/pluggedin-random-number-generator-mcp-python/issues"
 "Repository" = "https://github.com/VeriTeknik/pluggedin-random-number-generator-mcp-python"
 "Documentation" = "https://github.com/VeriTeknik/pluggedin-random-number-generator-mcp-python#readme"
-
-[project.dependencies]
-fastmcp = ">=0.1.0"
 
 [project.scripts]
 pluggedin-random-number-generator-mcp-python = "pluggedin_random_number_generator_mcp.server:main"

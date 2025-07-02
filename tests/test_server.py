@@ -40,10 +40,14 @@ class MCPTester:
 
         # Wait for the server to indicate it's running
         try:
+            # FastMCP outputs to stdout, not stderr, and shows a banner
             while True:
-                line = await asyncio.wait_for(self.server_process.stderr.readline(), timeout=5.0)
-                if b"running on stdio" in line:
+                line = await asyncio.wait_for(self.server_process.stdout.readline(), timeout=5.0)
+                if b"Transport:" in line and b"STDIO" in line:
                     print("✅ Server started successfully\n")
+                    # Read a few more lines to clear the startup banner
+                    for _ in range(5):
+                        await self.server_process.stdout.readline()
                     break
         except asyncio.TimeoutError:
             raise Exception("Server startup timeout")
