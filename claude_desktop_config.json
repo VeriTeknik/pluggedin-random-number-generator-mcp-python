@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "random-generator-python": {
+      "command": "uvx",
+      "args": ["pluggedin-random-number-generator-mcp-python"]
+    }
+  }
+}
